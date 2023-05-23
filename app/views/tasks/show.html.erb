@@ -1,0 +1,16 @@
+<h1><%= @task.title %></h1>
+
+<div>
+  <p><%= @task.details %></p>
+</div>
+
+<%= link_to "Edit Task", edit_task_path(@task) %>
+
+<%= form_with url: task_path(@task), method: :put, id: "update-task-form" do |form| %>
+  <div>
+    <%= form.check_box :completed, id: "task-checkbox" %>
+    <%= form.label :completed, "This task is completed" %>
+  </div>
+<% end %>
+
+<%= link_to "Back to list", tasks_path %>
